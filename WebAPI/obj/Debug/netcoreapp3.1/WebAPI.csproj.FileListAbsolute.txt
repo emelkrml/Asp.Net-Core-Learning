@@ -126,3 +126,6 @@ C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\obj\Debug\netcorea
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Autofac.Extras.DynamicProxy.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\FluentValidation.dll

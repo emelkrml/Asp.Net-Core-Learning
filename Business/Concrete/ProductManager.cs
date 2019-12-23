@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
 using Business.Concrete.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,9 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
+        // Önceliklendirebiliriz aşağıdaki gibi.
+        // [ValidationAspect(typeof(ProductValidator), Priority = 2)]
+        [ValidationAspect(typeof(ProductValidator), Priority = 1)]
         public IResult Add(Product product)
         {
             _productDal.Add(product);
