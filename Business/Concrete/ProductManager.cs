@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
@@ -28,6 +29,8 @@ namespace Business.Concrete
         // Önceliklendirebiliriz aşağıdaki gibi.
         // [ValidationAspect(typeof(ProductValidator), Priority = 2)]
         [ValidationAspect(typeof(ProductValidator), Priority = 1)]
+        [CacheRemoveAspect(pattern: "IProductService.Get")]
+        [CacheRemoveAspect(pattern: "ICategoryService.Get")]
         public IResult Add(Product product)
         {
             _productDal.Add(product);
@@ -50,6 +53,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList());
         }
 
+        [CacheAspect(duration:1)]
         public IDataResult<List<Product>> GetListByCategory(int categoryId)
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetList(filter:p=>p.CategoryID==categoryId).ToList());
