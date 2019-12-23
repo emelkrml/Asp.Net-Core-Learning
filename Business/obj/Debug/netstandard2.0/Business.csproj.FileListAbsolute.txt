@@ -1,0 +1,15 @@
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\obj\Debug\netstandard2.0\Business.csprojAssemblyReference.cache
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\obj\Debug\netstandard2.0\Business.AssemblyInfoInputs.cache
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\obj\Debug\netstandard2.0\Business.AssemblyInfo.cs
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\Business.deps.json
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\Business.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\Business.pdb
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\Core.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\DataAccess.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\bin\Debug\netstandard2.0\Core.pdb
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\obj\Debug\netstandard2.0\Business.csproj.CopyComplete
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\obj\Debug\netstandard2.0\Business.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\Business\obj\Debug\netstandard2.0\Business.pdb
