@@ -22,7 +22,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet(template:"getall")]
-        [Authorize(Roles = "Product.List")]
+        // Authorize, api katmanı kaldırıldığında yetkisini kaybetmiş olur buraya koyarsak.
+        // Bundan dolayı arayüz katmanında değil Business katmanında olmalı.
+        //[Authorize(Roles = "Product.List")]
         public IActionResult GetList()
         {
             var result = _productService.GetList();
