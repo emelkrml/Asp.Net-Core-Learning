@@ -10,6 +10,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Loggers;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Extensions;
+using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -25,21 +26,51 @@ namespace Business.Concrete
     public class ProductManager : IProductService
     {
         private IProductDal _productDal;
+        private ICategoryService _categoryService;
 
-        public ProductManager(IProductDal productDal, IHttpContextAccessor httpContextAccessor)
+        public ProductManager(IProductDal productDal, ICategoryService categoryService)
         {
             _productDal = productDal;
+            _categoryService = categoryService;
         }
 
         // Önceliklendirebiliriz aşağıdaki gibi.
         // [ValidationAspect(typeof(ProductValidator), Priority = 2)]
         [ValidationAspect(typeof(ProductValidator), Priority = 1)]
         [CacheRemoveAspect(pattern: "IProductService.Get")]
-        [CacheRemoveAspect(pattern: "ICategoryService.Get")]
+        //[CacheRemoveAspect(pattern: "ICategoryService.Get")]
         public IResult Add(Product product)
         {
+            IResult result = BusinessRules.Run(CheckIfProductNameExists(product.ProductName), CheckIfCategoryIsEnabled());
+            
+            if (result != null)
+            {
+                return result;
+            }
+
             _productDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
+        }
+
+        private IResult CheckIfProductNameExists(string productName)
+        {
+            if (_productDal.Get(filter: p => p.ProductName == productName) != null)
+            {
+                return new ErrorResult(Messages.ProductNameAlreadyExist);
+            }
+
+            return new SuccessResult();
+        }
+
+        private IResult CheckIfCategoryIsEnabled()
+        {
+            var result = _categoryService.GetList();
+            if (result.Data.Count<10)
+            {
+                return new ErrorResult(Messages.ProductNameAlreadyExist);
+            }
+
+            return new SuccessResult();
         }
 
         public IResult Delete(Product product)
@@ -50,22 +81,22 @@ namespace Business.Concrete
 
         public IDataResult<Product> GetById(int productId)
         {
-            return new SuccessDataResult<Product>(_productDal.Get(filter:p=>p.ProductID == productId));
+            return new SuccessDataResult<Product>(_productDal.Get(filter: p => p.ProductID == productId));
         }
 
-        [PerformanceAspect(interval:5)]
+        [PerformanceAspect(interval: 5)]
         public IDataResult<List<Product>> GetList()
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList());
         }
 
         //[SecuredOperation("Product.List, Admin")] // Cache den önce çalışmasını istiyoruz.
-        [LogAspect(loggerService:typeof(DataBaseLogger))]
-        [CacheAspect(duration:10)]
-        
+        [LogAspect(loggerService: typeof(DataBaseLogger))]
+        [CacheAspect(duration: 10)]
+
         public IDataResult<List<Product>> GetListByCategory(int categoryId)
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetList(filter:p=>p.CategoryID==categoryId).ToList());
+            return new SuccessDataResult<List<Product>>(_productDal.GetList(filter: p => p.CategoryID == categoryId).ToList());
         }
 
         [TransactionScopeAspect]
