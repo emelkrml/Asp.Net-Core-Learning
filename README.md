@@ -1,2 +1,3 @@
-# core-part-1
+# core kearning
+
 Asp.Net Core learning
