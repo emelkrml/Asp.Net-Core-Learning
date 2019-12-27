@@ -1,13 +1,19 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Concrete.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Logging.Loggers;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Extensions;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +24,9 @@ namespace Business.Concrete
     // ProductService
     public class ProductManager : IProductService
     {
-
         private IProductDal _productDal;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal, IHttpContextAccessor httpContextAccessor)
         {
             _productDal = productDal;
         }
@@ -48,12 +53,16 @@ namespace Business.Concrete
             return new SuccessDataResult<Product>(_productDal.Get(filter:p=>p.ProductID == productId));
         }
 
+        [PerformanceAspect(interval:5)]
         public IDataResult<List<Product>> GetList()
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList());
         }
 
-        [CacheAspect(duration:1)]
+        //[SecuredOperation("Product.List, Admin")] // Cache den önce çalışmasını istiyoruz.
+        [LogAspect(loggerService:typeof(DataBaseLogger))]
+        [CacheAspect(duration:10)]
+        
         public IDataResult<List<Product>> GetListByCategory(int categoryId)
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetList(filter:p=>p.CategoryID==categoryId).ToList());

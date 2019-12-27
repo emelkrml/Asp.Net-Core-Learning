@@ -122,10 +122,16 @@ C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcorea
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Autofac.Extras.DynamicProxy.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\log4net.config
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\log4net.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\MicroKnights.Log4NetAdoNetAppender.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Emel Kırımlı\source\repos\NorthwindBackend\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cache
