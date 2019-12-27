@@ -19,7 +19,7 @@ namespace Core.Aspects.Autofac.Validation
             // Gönderilen validatorType IValidator tipinde mi?
             if (typeof(IValidator).IsAssignableFrom(validatorType))
             {
-                throw new Exception(AsspectMessages.WrongValidationType);
+                throw new System.Exception(AsspectMessages.WrongValidationType);
             }
 
             _validatorType = validatorType;

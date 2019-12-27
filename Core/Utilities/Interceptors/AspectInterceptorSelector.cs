@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 using System.Text;
+using Core.CrossCuttingConcerns.Logging.Loggers;
+using Core.Aspects.Autofac.Exception;
 
 namespace Core.Utilities.Interceptors
 {
@@ -16,6 +18,7 @@ namespace Core.Utilities.Interceptors
 
             var methodAttributes = type.GetMethod(method.Name).GetCustomAttributes<MethodINterceptionBaseAttribute>(inherit:true);
             classAttributes.AddRange(methodAttributes);
+            classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger)));
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();
         }
